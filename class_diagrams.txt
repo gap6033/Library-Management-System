@@ -1,0 +1,121 @@
+Books
+    -ISBN: str
+    -AuthorID: str
+    -Price: float
+    -Edition: str
+    -Publication Info: str
+    -CoverType: ENUM
+    -Genre: ENUM
+
+BookTitle:
+    -ISBN: str
+    -Title: str
+    -Language: str
+
+Author
+    -AuthorID: str
+    -Name: str
+    -ISBN: str
+
+BookCoverType
+    -HardBound: str
+    -SoftBound: str
+    -ElectronicCopy: str
+
+BookGenre
+    -Fantasy: str
+    -Thriller: str
+    -Drama: str
+    -Comedy: str
+
+Locations
+    -LocationID
+    -BookGenre
+
+BookCopies
+    -ID: str
+    -ISBN: str
+    -Status: ENUM
+    -History
+
+BookCopyStatus
+    -Removed: str
+    -CheckedOut: str
+    -Available: str
+
+Removed
+    -BookCopyID: str
+    -Reason: str
+
+CheckedOut
+    -BookCopyID: str
+    -BorrowerID: str
+    -CheckOutDate: date
+    -DueDate: date
+
+Available
+    -BookCopyID: str
+
+BookCopyHistory
+    -BookCopyID: str
+    -BorrowerID: str
+    -CheckOutDate: date
+
+Customer
+    -CustomerID: str
+    -Name: str
+    -Email: str
+    -Phone: str
+    -BooksCheckedOut: list<str>
+    login()
+    search_books()
+
+CustomerSubscriptionPlan
+    -PlanID: str
+    -CustomerID: str
+    -MemberShipStartDate: date
+    -MemberShipEndDate: date
+
+SubscriptionPlan
+    -PlanID: str
+    -PlanName: str
+    -PlanStartDate: date
+    -PlanEndDate: date
+    -PlanDescription: str
+    -Price: float
+    -CheckOutLimit: int
+
+
+CustomerHistory
+    -CustomerID: str
+    -PastCheckouts: List<str>
+    -DelayedReturnCount: int
+    -FinePaid: float
+
+Fines
+    -BookCopyID: str
+    -CustomerID: str
+    -CheckOutDate: date
+    -CheckInDate: date
+    -FineAmount: float
+
+
+Librarian
+    -ID: str
+    login()
+    register_member()
+    renew_customer_membership()
+    update_customer_membership()
+    create_subscription_plan()
+    check_in_bookcopy()
+    check_out_bookcopy()
+    get_overdue_bookscopies()
+    get_today_due_bookscopies()
+    remove_book()
+    add_book()
+    fetch_book_copy_history()
+    search_books()
+    send_notification()
+
+
+
